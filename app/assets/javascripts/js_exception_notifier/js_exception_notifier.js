@@ -50,7 +50,7 @@
 
         return response.ok;
       } catch (error) {
-        console.log(data);
+        console.log(errorReport);
         return false;
       }
     }
