@@ -8,7 +8,7 @@
     }
     excludedContext = [];
     excludedContext.push('NREUMQ');
-    let match = excludedContent.find((value) => context.match(value));
+    let match = excludedContext.find((value) => context.match(value));
     return match !== undefined;
   };
 
