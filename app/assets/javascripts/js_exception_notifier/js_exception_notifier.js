@@ -8,14 +8,8 @@
     }
     excludedContext = [];
     excludedContext.push('NREUMQ');
-    $.each(excludedContext, function(index, value) {
-      var result;
-      result = context.match(value);
-      if (result) {
-        return true;
-      }
-    });
-    return false;
+    let match = excludedContent.find((value) => context.match(value));
+    return match !== undefined;
   };
 
   isExcludedFile = function(filename) {
@@ -25,14 +19,9 @@
     }
     excludedServices = [];
     excludedServices.push('newrelic', 'livechatinc', 'selenium-ide', 'firebug', 'tracekit', 'amberjack', 'googleapis');
-    $.each(excludedServices, function(index, value) {
-      var result;
-      result = filename.match(value);
-      if (result) {
-        return true;
-      }
-    });
-    return false;
+
+    let match = excludedServices.find((value) => filename.match(value));
+    return match !== undefined;
   };
 
   TraceKit.report.subscribe(JSExceptionNotifierLogger = function(errorReport) {
