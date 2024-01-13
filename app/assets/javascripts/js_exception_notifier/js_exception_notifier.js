@@ -24,7 +24,7 @@
     return match !== undefined;
   };
 
-  TraceKit.report.subscribe(JSExceptionNotifierLogger = function(errorReport) {
+  JSExceptionNotifierLogger = function(errorReport) {
     var ref;
     if (errorReport.message !== '' && errorReport.stack && errorReport.stack[0] && errorReport.stack[0].line > 0 && !isExcludedFile(errorReport.stack[0].url) && !isExcludedContext((ref = errorReport.stack[0].context) != null ? ref.join() : void 0)) {
       window.errorCount || (window.errorCount = 0);
@@ -49,8 +49,9 @@
         }
       });
     }
-  });
+  }
 
+  TraceKit.report.subscribe(JSExceptionNotifierLogger);
   $.fn.ready = TraceKit.wrap($.fn.ready);
 
 }).call(this);
