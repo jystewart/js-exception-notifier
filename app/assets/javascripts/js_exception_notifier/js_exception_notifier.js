@@ -57,6 +57,4 @@
   }
 
   TraceKit.report.subscribe(JSExceptionNotifierLogger);
-  $.fn.ready = TraceKit.wrap($.fn.ready);
-
 }).call(this);
